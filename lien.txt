@@ -1,0 +1,5 @@
+https://www.infoclimat.fr/stations-meteo/analyses-mensuelles.php
+(liens pour la météo)
+
+https://www.data.gouv.fr/fr/datasets/hauteurs-deau-et-debits-des-cours-deau-observes-en-temps-reel-aux-stations-du-reseau-vigicrues/
+(liens pour les données vigicrues)
