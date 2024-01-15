@@ -1,0 +1,65 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": []
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "code",
+      "execution_count": 52,
+      "metadata": {
+        "id": "wfvm9e3ymlz9"
+      },
+      "outputs": [],
+      "source": [
+        "import numpy as np\n",
+        "import pandas as pd\n",
+        "import matplotlib.pyplot as plt\n",
+        "import seaborn as sns\n",
+        "import sklearn\n",
+        "\n",
+        "df1=pd.read_csv('/content/hauteur.csv', sep = \",\", encoding = 'latin')\n",
+        "df2=pd.read_csv('/content/debit.csv', sep = \",\", encoding = 'latin')\n",
+        "df3=\n",
+        "\n",
+        "df1['jour'] = df1['date_debut_serie'].str[:10]\n",
+        "df2['jour'] = df2['date_debut_serie'].str[:10]\n",
+        "df1 = df1.drop(columns= ['date_debut_serie', 'date_fin_serie', 'date_obs', 'continuite_obs_hydro'])\n",
+        "df2 = df2.drop(columns= ['date_debut_serie', 'date_fin_serie', 'date_obs', 'continuite_obs_hydro'])\n",
+        "\n",
+        "resultat1 = pd.merge(df1, df2, on=['jour'])\n",
+        "\n",
+        "df1 = df1.groupby('jour').agg({'resultat_obs': 'mean'}).reset_index()\n",
+        "df2 = df2.groupby('jour').agg({'resultat_obs': 'mean'}).reset_index()\n",
+        "\n",
+        "resultat2 = pd.merge(df1, df2, on=['jour'])\n",
+        "\n",
+        "coefficients = np.polyfit(resultat2[\"resultat_obs_x\"], resultat2[\"resultat_obs_y\"], 1)\n",
+        "slope = coefficients[0]\n",
+        "intercept = coefficients[1]\n",
+        "\n",
+        "df3 = df3.drop(columns= ['date_debut_serie', 'date_fin_serie', 'date_obs', 'continuite_obs_hydro'])\n",
+        "\n",
+        "df3 = df3.groupby('jour').agg({'resultat_obs': 'mean'}).reset_index()\n",
+        "\n",
+        "df3[\"Prediction\"] = intercept + slope * df3[\"resultat_obs_elab\"]\n",
+        "\n",
+        "df3.to_csv('mon_dataframe.csv', index=False)\n",
+        "\n",
+        "# Téléchargement du fichier CSV\n",
+        "from google.colab import files\n",
+        "files.download('mon_dataframe.csv')"
+      ]
+    }
+  ]
+}
