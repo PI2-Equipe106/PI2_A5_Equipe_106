@@ -34,8 +34,8 @@ from pyproj import Proj, transform
 import re
 
 # Lien vers les fichiers zips sur GitHub
-url_zip = "https://raw.githubusercontent.com/ThomJarland/pi2-esilv-app/main/liste_seuil_hauteur2.csv.zip"
-url_zip2 = "https://raw.githubusercontent.com/ThomJarland/pi2-esilv-app/main/Hydro_IDF_Polygon.csv.zip"
+url_zip = "https://raw.githubusercontent.com/PI2-Equipe106/PI2_A5_Equipe_106/main/Data_Application_Streamlit/liste_seuil_hauteur2.csv.zip"
+url_zip2 = "https://raw.githubusercontent.com/PI2-Equipe106/PI2_A5_Equipe_106/main/Data_Application_Streamlit/Hydro_IDF_Polygon.csv.zip"
 
 # Noms des fichier CSV à extraire des zips
 nom_fichier_csv = "liste_seuil_hauteur2.csv"
@@ -76,12 +76,12 @@ st.write("\n")
 
 # Chargement des fichiers csv nécessaires depuis le github
 stations = pd.read_csv("https://raw.githubusercontent.com/PI2-Equipe106/PI2_A5_Equipe_106/main/Data_Application_Streamlit/Stations22.csv", delimiter=";")
-prediction = pd.read_csv("https://raw.githubusercontent.com/ThomJarland/testtjpie/main/prediction_exemple.csv", delimiter=",")
-prededmee = pd.read_csv("https://raw.githubusercontent.com/ThomJarland/pi2-esilv-app/main/predictions_edmee.csv", delimiter=";")
-choixmodel = pd.read_csv("https://raw.githubusercontent.com/ThomJarland/pi2-esilv-app/main/best_model.csv", delimiter=",")
-Donnees_Modele_Maths = pd.read_csv("https://raw.githubusercontent.com/ThomJarland/pi2-esilv-app/main/Donnees_Modele_Maths.csv", delimiter=";")
-parametres_stations_VF= pd.read_csv("https://raw.githubusercontent.com/ThomJarland/pi2-esilv-app/main/parametres_stations_VF.csv", delimiter=",")
-probabilite_pi2_0_50= pd.read_csv("https://raw.githubusercontent.com/ThomJarland/pi2-esilv-app/main/probabilite_pi2_0_50.csv", delimiter=";")
+#prediction = pd.read_csv("https://raw.githubusercontent.com/ThomJarland/testtjpie/main/prediction_exemple.csv", delimiter=",")
+prededmee = pd.read_csv("https://raw.githubusercontent.com/PI2-Equipe106/PI2_A5_Equipe_106/main/Data_Application_Streamlit/predictions_edmee.csv", delimiter=";")
+choixmodel = pd.read_csv("https://raw.githubusercontent.com/PI2-Equipe106/PI2_A5_Equipe_106/main/Data_Application_Streamlit/best_model.csv", delimiter=",")
+Donnees_Modele_Maths = pd.read_csv("https://raw.githubusercontent.com/PI2-Equipe106/PI2_A5_Equipe_106/main/Data_Application_Streamlit/Donnees_Modele_Maths.csv", delimiter=";")
+parametres_stations_VF= pd.read_csv("https://raw.githubusercontent.com/PI2-Equipe106/PI2_A5_Equipe_106/main/Data_Application_Streamlit/parametres_stations_VF.csv", delimiter=",")
+probabilite_pi2_0_50= pd.read_csv("https://raw.githubusercontent.com/PI2-Equipe106/PI2_A5_Equipe_106/main/Data_Application_Streamlit/probabilite_pi2_0_50.csv", delimiter=";")
 
 # Gestion de cohérence des stations disponibles dans chaque fichier csv
 merged_df = pd.merge(stations, prededmee, how='inner', left_on='code_station', right_on='station')
