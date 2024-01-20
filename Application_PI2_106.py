@@ -69,7 +69,8 @@ def address_to_coordinates(address):
 # Initialisation de la page avec le logo du partenaire et un accès au site web
 LOGGER = get_logger(__name__)
 
-st.write("Projet académique - PI2 - 106")
+st.header('Projet académique - PI2 - 106', divider='gray')
+#st.write("Projet académique - PI2 - 106")
 st.write("\n")
 
 # Chargement des fichiers csv nécessaires depuis le github
