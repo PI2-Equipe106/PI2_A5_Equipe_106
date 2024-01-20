@@ -68,10 +68,8 @@ def address_to_coordinates(address):
     
 # Initialisation de la page avec le logo du partenaire et un accès au site web
 LOGGER = get_logger(__name__)
-image = "https://www.diot-siaci.com/wp-content/uploads/2023/01/RVB_DIOTSIACI_LOGOTYPE_MEDIUM.png"
-st.image(image, use_column_width=True)
-st.link_button("Diot-Siaci : Conseil et courtage d'assurance et de réassurance", "https://www.diot-siaci.com/")
-st.write("\n")
+
+st.write("Projet académique - PI2 - 106")
 st.write("\n")
 
 # Chargement des fichiers csv nécessaires depuis le github
@@ -94,7 +92,7 @@ stations = stations[stations['code_station'].isin(probabilite_pi2_0_50['Station'
 
 # Autorisation de géolocalisation / L'utilisateur renseigne son adresse
 # En fonction de son adresse on retrouve ses coordonnées GPS, puis on peut trouver les 5 stations les plus proches du lieu 
-on = st.toggle('J\'autorise l\'entreprise Diot-Siaci à géolocaliser les locaux que je souhaite assurer.')
+on = st.toggle('J\'autorise la géolocalisation de mes locaux.')
 if on:
     st.write("\n")
     st.subheader('Données géographiques :', divider='gray')
