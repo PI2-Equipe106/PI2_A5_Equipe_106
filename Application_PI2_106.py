@@ -75,7 +75,7 @@ st.write("\n")
 st.write("\n")
 
 # Chargement des fichiers csv nécessaires depuis le github
-stations = pd.read_csv("https://raw.githubusercontent.com/ThomJarland/pi2-esilv-app/main/Stations22.csv", delimiter=";")
+stations = pd.read_csv("https://raw.githubusercontent.com/PI2-Equipe106/PI2_A5_Equipe_106/main/Data_Application_Streamlit/Stations22.csv", delimiter=";")
 prediction = pd.read_csv("https://raw.githubusercontent.com/ThomJarland/testtjpie/main/prediction_exemple.csv", delimiter=",")
 prededmee = pd.read_csv("https://raw.githubusercontent.com/ThomJarland/pi2-esilv-app/main/predictions_edmee.csv", delimiter=";")
 choixmodel = pd.read_csv("https://raw.githubusercontent.com/ThomJarland/pi2-esilv-app/main/best_model.csv", delimiter=",")
