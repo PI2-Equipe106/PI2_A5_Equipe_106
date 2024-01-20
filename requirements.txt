@@ -1,0 +1,10 @@
+altair
+numpy
+pandas
+pydeck
+streamlit
+geopy
+folium
+streamlit_folium
+geocoder
+geopandas
