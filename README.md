@@ -1,5 +1,7 @@
 Projet académique - PI2
 
+Lien : https://appweb-pi2-106.streamlit.app/
+
 ESILV - ACTUARIAT - MASTER 2
 
 
