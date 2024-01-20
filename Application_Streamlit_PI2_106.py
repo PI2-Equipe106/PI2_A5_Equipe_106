@@ -319,7 +319,7 @@ if on:
                                 nombre_de_valeurs_superieures2 = sum(valeur >= seuil_candidate for valeur in liste_decimaux)
                                 prime_calculee = number * (nombre_de_valeurs_superieures2 / len(liste_decimaux))
                                 
-                                if abs(number2 - prime_calculee) < 30:
+                                if abs(number2 - prime_calculee) < 50:
                                     seuil_trouve = seuil_candidate
                                     break
                             
